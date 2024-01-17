@@ -2,6 +2,7 @@ import { Game } from "../services/game-service";
 import { Card, CardBody, HStack, Heading, Image, Text } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
+import getCroppedImageURL from "../services/image-url";
 interface Props {
   game: Game;
 }
@@ -10,7 +11,7 @@ const GameCard = ({ game }: Props) => {
     <Card maxW="lg">
       <CardBody>
         <Image
-          src={game.background_image}
+          src={getCroppedImageURL(game.background_image)}
           alt="movie poster"
           borderRadius="lg"
           marginBottom={5}
