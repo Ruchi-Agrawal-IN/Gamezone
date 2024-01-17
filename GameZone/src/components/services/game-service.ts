@@ -12,20 +12,19 @@ export interface Platform {
   name: string;
   slug: string;
 }
-export interface FetchGamesResponse {
-  count: number;
-  results: Game[];
-}
+ interface FetchGamesResponse {
+   count: number;
+   results: Game[];
+ }
 
-class GameService {
-  fetchAllGames() {
-    const controller = new AbortController();
-    const request = apiclient.get<FetchGamesResponse>("/games", {
-      signal: controller.signal,
-    });
-
-    return { request, cancel: () => controller.abort() };
-  }
-}
+ class GameService {
+   fetchAllGames() {
+     const controller = new AbortController();
+     const request = apiclient.get<FetchGamesResponse>("/games", {
+       signal: controller.signal,
+     });
+     return { request, cancel: () => controller.abort() };
+   }
+ }
 
 export default new GameService();
