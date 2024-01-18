@@ -9,12 +9,14 @@ import { Genre } from "./components/Genre/useGenre";
 import PlatformSelector from "./components/Platforms/PlatformSelector";
 import { Platform } from "./components/Platforms/usePlatforms";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
   searchText: string;
+  heading: string;
 }
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
@@ -49,6 +51,7 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
+          <GameHeading gameQuery={gameQuery} />
           <HStack>
             <PlatformSelector
               onPlatformSelection={(platform) =>
