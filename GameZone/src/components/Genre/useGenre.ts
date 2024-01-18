@@ -1,26 +1,10 @@
-import { useEffect, useState } from "react";
-import GenreService, { Genre } from "./genre-service";
-import { CanceledError } from "axios";
+import useData from "../hooks/useData";
+export interface Genre {
+  id: number;
+  name: "string";
+  slug: "string";
+  image_background: string;
+}
 
-const useGenre = () => {
-  const [genres, setGenres] = useState<Genre[]>([]);
-  const [error, setError] = useState("");
-  const [isLoading, setLoading] = useState(false);
-  useEffect(() => {
-    const { request, cancel } = GenreService.fetchAllGenres();
-    setLoading(true);
-    request
-      .then((res) => {
-        setGenres(res.data.results);
-        setLoading(false);
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-        setLoading(false);
-        return cancel();
-      });
-  }, []);
-  return { genres, error, isLoading };
-};
+const useGenre = () => useData<Genre>("/genres");
 export default useGenre;

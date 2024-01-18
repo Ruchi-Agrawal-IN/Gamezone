@@ -4,6 +4,7 @@ import { Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GamesGrid from "./components/Games/GamesGrid";
 import GenreList from "./components/Genre/GenreList";
+
 function App() {
   return (
     <>

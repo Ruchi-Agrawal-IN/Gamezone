@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const apiclient = axios.create({
   baseURL: "https://api.rawg.io/api",
   params: {
