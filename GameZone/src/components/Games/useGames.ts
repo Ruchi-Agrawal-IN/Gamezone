@@ -1,12 +1,13 @@
 import { GameQuery } from "../../App";
 import { Platform } from "../Platforms/usePlatforms";
 import useData from "../hooks/useData";
-interface Game {
+export interface Game {
   id: number;
   name: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  rating_top: number;
 }
 
 const useGame = (gameQuery: GameQuery) =>
