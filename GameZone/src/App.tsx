@@ -49,7 +49,7 @@ function App() {
               selectedGenre={gameQuery.genre}
             />
           </GridItem>
-        </Show>
+        </Sh>o
         <GridItem area="main">
           <GameHeading gameQuery={gameQuery} />
           <HStack>
